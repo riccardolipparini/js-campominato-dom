@@ -19,82 +19,58 @@ const mineField = document.getElementById("campominato");
 const chooseDif = prompt("A quale difficoltà vuoi giocare? scrivi facile, medio o difficile")
 
 const bombe = [];
-
+let totaleBombe;
+let baseClass;
 
 if (chooseDif == "facile") {
-    for (i = 1; i < 101; i++) {
-        let div = generaDiv("div", "grid1");
-        // div click per cambiare colore
-        div.addEventListener("click",
-            function () {
-                div.classList.add("click");
-            }
-        );
-        mineField.append(div);
-        div.append(i);
-    }
-    while (bombe.length < 16) {
-
-        let num = randomNum(100, 1);
-        if (bombe.includes(num) === false) {
-            bombe.push(num);
-
-        }
-
-    }
-
+    totaleBombe = 100;
+    baseClass = "grid1";
+    generaGriglia();
 } else if (chooseDif == "medio") {
-    for (i = 1; i < 82; i++) {
-        let div = generaDiv("div", "grid2");
-        // div click per cambiare colore
-        div.addEventListener("click",
-            function () {
-                div.classList.add("click");
-            }
-        );
-        mineField.append(div);
-        div.append(i);
-    }
-    while (bombe.length < 16) {
-
-        let num = randomNum(81, 1);
-        if (bombe.includes(num) === false) {
-            bombe.push(num);
-
-        }
-
-    }
-
+    totaleBombe = 81;
+    baseClass = "grid2";
+    generaGriglia();
 } else if (chooseDif == "difficile") {
-    for (i = 1; i < 50; i++) {
-        let div = generaDiv("div", "grid3");
-        // div click per cambiare colore
-        div.addEventListener("click",
-            function () {
-                div.classList.add("click");
-            }
-        );
-        mineField.append(div);
-        div.append(i);
-    }
-    while (bombe.length < 16) {
-
-        let num = randomNum(49, 1);
-        if (bombe.includes(num) === false) {
-            bombe.push(num);
-
-        }
-
-    }
-
+    totaleBombe = 49;
+    baseClass = "grid3";
+    generaGriglia();
 }
 
 
+function generaBombe() {
+    while (bombe.length < 16) {
+        let num = randomNum(totaleBombe, 1);
+        if (bombe.includes(num) === false) {
+            bombe.push(num);
+        }
+    }
+    console.log(bombe);
+}
 
+function generaGriglia() {
+    generaBombe();
+    
+    for (i = 1; i <= totaleBombe; i++) {
+        let div = generaDiv("div", baseClass);
+        div.id = i;
+        // div click per cambiare colore
+        div.addEventListener("click",
+            function () {
+                div.classList.add("click");
+                // const id = parseInt(div.id);
+                // const id = this.innerText;
+                if (bombe.includes(id)) {
+                    // è una bomba, ho perso
+                    alert('ho perso');
+                }
+            }
+        );
+        mineField.append(div);
+        div.append(i);
+    }
+    
+}
 
-
-
-console.log(bombe);
 
 
 
