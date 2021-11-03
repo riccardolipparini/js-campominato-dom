@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(96, 96, 179);
+}
+
+
+#campominato{
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    width: 800px;
+    /* debug */
+    
+}
+
+.grid1{
+    margin: 0;
+    width:calc(100% / 10);
+    height: calc(100% / 10);
+    border: black solid 1px;
+}
+
+.grid2{
+    margin: 0;
+    width:calc(100% / 9);
+    height: calc(100% / 9);
+    border: black solid 1px;
+}
+
+.grid3{
+    margin: 0;
+    width:calc(100% / 7);
+    height: calc(100% / 7);
+    border: black solid 1px;
+}
+
+
+.grid1.click{
+    margin: 0;
+    width:calc(100% / 10);
+    height: calc(100% / 10);
+    border: black solid 1px;
+    background-color: whitesmoke;
+}
+
+.grid2.click{
+    margin: 0;
+    width:calc(100% / 9);
+    height: calc(100% / 9);
+    border: black solid 1px;
+    background-color: whitesmoke;
+}
+
+.grid3.click{
+    margin: 0;
+    width:calc(100% / 7);
+    height: calc(100% / 7);
+    border: black solid 1px;
+    background-color: whitesmoke;
+}
+
+.bomb{
+    margin: 0;
+    width:calc(100% / 7);
+    height: calc(100% / 7);
+    border: black solid 1px;
+    background-color: red;
+}
